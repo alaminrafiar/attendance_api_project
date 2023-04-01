@@ -14,7 +14,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   final _formkey = GlobalKey<FormState>();
-  final idController = TextEditingController();
+  final TextEditingController idController = TextEditingController();
 
   AuthReset? authReset;
 
@@ -72,7 +72,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
 
                     });
                     if(_formkey.currentState!.validate() && authReset != null) {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Verify()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                          Verify(id: idController.text.toString(),)));
                     }
                   },
                   child: Container(

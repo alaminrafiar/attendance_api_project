@@ -1,4 +1,5 @@
 import 'package:attendance_api_project/Pages/Profile/Edit%20Profile.dart';
+import 'package:attendance_api_project/controller/key.dart';
 import 'package:attendance_api_project/controller/profile/my_key%20_words.dart';
 import 'package:attendance_api_project/controller/profile/user_model.dart';
 import 'package:attendance_api_project/model/AuthLogin.dart';
@@ -6,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const api_profile());
@@ -452,14 +455,17 @@ class _api_profileState extends State<api_profile> {
   }
 
   Future<User?> mLoadData() async {
+    final SharedPreferences sharedPreferences =await SharedPreferences.getInstance();
+
+    String?  mytoken = sharedPreferences.getString(MyKey.token);
     var r = await http.get(
         Uri.parse(
             'https://api-attendance.grapview.com/api/v1/employee/profile'),
         headers: <String, String>{
           'Content-Type': 'application/json',
           "api_key": '5267556B58703273357638792F423F45',
-          "Authorization":
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmFmZmQ2MTVlZjJhZTY4OTYxZDVhNSIsIm5hbWUiOiJNZCBBbC1BbWluIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjc5NDg3MTc5LCJleHAiOjE2Nzk1NzM1Nzl9.xPPBa2CzNIFAUpsLhNYxe7xWrCm61bJ2X44cXf1Tj4s"
+          "Authorization": "Bearer $mytoken"
+              //"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZmFmZmQ2MTVlZjJhZTY4OTYxZDVhNSIsIm5hbWUiOiJNZCBBbC1BbWluIiwicm9sZSI6ImVtcGxveWVlIiwiaWF0IjoxNjc5NDg3MTc5LCJleHAiOjE2Nzk1NzM1Nzl9.xPPBa2CzNIFAUpsLhNYxe7xWrCm61bJ2X44cXf1Tj4s"
         });
     //print("our result:  ${r.body}");
     Map result = json.decode(r.body);

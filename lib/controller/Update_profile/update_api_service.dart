@@ -3,8 +3,10 @@ import 'dart:convert';
 
 import 'package:attendance_api_project/controller/Update_profile/update_constants.dart';
 import 'package:attendance_api_project/controller/Update_profile/update_key.dart';
+import 'package:attendance_api_project/controller/profile/my_key%20_words.dart';
 import 'package:attendance_api_project/model/authModel.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class UpdateApiService {
@@ -16,6 +18,8 @@ class UpdateApiService {
     String phone,
     String gender,
   ) async {
+    // final SharedPreferences sharedPreferences =await SharedPreferences.getInstance();
+    // String? mytoken =sharedPreferences.getString(MyKeywords.token);
     var response = await http.put(Uri.parse(UpdateConstants.updateUrl),
         headers: <String, String>{
           'Content-Type': 'application/json',

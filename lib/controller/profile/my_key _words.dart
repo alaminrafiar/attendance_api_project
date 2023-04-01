@@ -1,4 +1,5 @@
 class MyKeywords{
+  static const String token ="token";
   static const String id="_id";
   static const String employee_id="employee_id";
   static const String name="name";
