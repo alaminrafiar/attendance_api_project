@@ -3,7 +3,7 @@ import 'package:attendance_api_project/Pages/LoginPage/Forgot%20Password.dart';
 import 'package:attendance_api_project/controller/Login/my%20login%20service.dart';
 import 'package:attendance_api_project/model/AuthLogin.dart';
 import 'package:flutter/material.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String? __message;
   final _formfield = GlobalKey<FormState>();
   final idController = TextEditingController();
   final passController = TextEditingController();
@@ -133,6 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                     authLogin = await MyLoginService.mFetchUser(
                         idController.text, passController.text);
                     setState(() {});
+
                     if (_formfield.currentState!.validate() &&
                         authLogin != null) {
                       Navigator.push(
@@ -154,7 +156,8 @@ class _LoginPageState extends State<LoginPage> {
                             blurRadius: 0)
                       ],
                     ),
-                    child: const Center(
+                    child:  Center(
+
                       child: Text(
                         "Login",
                         style: TextStyle(
@@ -170,6 +173,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 TextButton(
                     onPressed: () {
+                      //toast navigation var
+
                       Navigator.push(
                           context,
                           MaterialPageRoute(

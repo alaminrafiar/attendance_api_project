@@ -420,91 +420,229 @@ class _UserProfileFormState extends State<UserProfileForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Scaffold(
-        body: Form(
+    return Scaffold(
+      body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+        child: Form(
           key: _formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+
             //mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Image.asset("Assets/Images/Logo.png",
+                height: 178,
+                width: 186,
+              ),
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: _nameController,
-                decoration: InputDecoration(
-                  labelText: 'Name',
+              Container(
+
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: _nameController,
+                      decoration: InputDecoration(
+                        hintText: "Name",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      controller: _emailController,
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height:20 ,),
+                    TextFormField(
+                      controller: _phoneCountryController,
+                      decoration: InputDecoration(
+                        hintText: "Country",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: 20,),
+                    TextFormField(
+                      controller: _phoneDialCodeController,
+                      decoration: InputDecoration(
+                        hintText: "dial_code +880",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                    TextFormField(
+                      controller: _phoneController,
+                      decoration: InputDecoration(
+                        hintText: "Number",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 20,),
+                    TextFormField(
+                      controller: _genderController,
+                      decoration: InputDecoration(
+                        hintText: "Gender",
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 15),
+                        filled: true,
+                        fillColor: Colors.grey.shade100,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.grey.shade200, width: 2),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Employee ID is Required";
+                        }
+                        return null;
+                      },
+                    ),
+
+
+                  ],
                 ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your name';
-                  }
-                  return null;
-                },
               ),
-              TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email address';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _phoneCountryController,
-                decoration: InputDecoration(
-                  labelText: 'Bangladesh',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your phone country';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _phoneDialCodeController,
-                decoration: InputDecoration(
-                  labelText: '+880',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your phone dial code';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _phoneController,
-                decoration: InputDecoration(
-                  labelText: '1xxxxxxxxxx',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your phone number';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _genderController,
-                decoration: InputDecoration(
-                  labelText: 'Gender Male?Female',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your gender';
-                  }
-                  return null;
-                },
-              ),
-              ElevatedButton(
+              SizedBox(height: 20,),
+
+              TextButton(
                 onPressed: () async {
                   authUpdate = await UpdateApiService.updateM(
                       _nameController.text,
@@ -525,6 +663,7 @@ class _UserProfileFormState extends State<UserProfileForm> {
             ],
           ),
         ),
+      ),
       ),
     );
   }
